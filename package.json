@@ -1,0 +1,38 @@
+{
+  "name": "galileo",
+  "version": "1.0.0",
+  "description": "Test Project for LuizaLabs Exam",
+  "main": "./src/index.js",
+  "scripts": {
+    "test": "test",
+    "start": "ts-node-dev --respawn --pretty --transpile-only src/index.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "github.com/jason-pires/galileo"
+  },
+  "keywords": [
+    "nodejs",
+    "api",
+    "webapi",
+    "express",
+    "typescript"
+  ],
+  "author": "Jason Pires",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "helmet": "^4.6.0"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.12",
+    "@types/dotenv": "^8.2.0",
+    "@types/express": "^4.17.13",
+    "@types/helmet": "^4.0.0",
+    "@types/node": "^16.11.10",
+    "ts-node-dev": "^1.1.8",
+    "typescript": "^4.5.2"
+  }
+}
