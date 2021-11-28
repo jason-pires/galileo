@@ -1,7 +1,7 @@
 /**
  * Global Helpers
  */
-let count: number = 4;
+let count: number = 3;
 
 /**
  * Data Model Interfaces
