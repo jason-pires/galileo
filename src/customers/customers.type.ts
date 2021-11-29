@@ -1,5 +1,10 @@
-import { Customer } from "./customer.type";
-
-export interface Customers {
-    [key: number]: Customer;
-}
+export interface BaseCustomer {
+    name: string;
+    gender: string;
+    email: string;
+    document: string;
+  }
+  
+  export interface Customer extends BaseCustomer {
+    id: number;
+  }

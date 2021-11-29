@@ -6,8 +6,4 @@ module.exports = {
   collectCoverage: true,
   coverageDirectory: "coverage",
   coverageProvider: "v8",
-//   testMatch: [
-//     '<rootDir>/**/__tests__/**/?(*.)(spec|test).js',
-//     '<rootDir>/**/?(*.)(spec|test).js'
-// ],
 };

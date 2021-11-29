@@ -47,7 +47,8 @@ export const findAll = () => {
 
     return new Promise<Customer[]>((resolve, reject) => {
         const queryString = `
-        SELECT id, name, email, document, gender FROM db_market.customers`
+        SELECT id, name, email, document, gender FROM db_market.customers
+        ORDER BY id`
 
         db.query(queryString, (err, result) => {
             if (err) { reject(err) }

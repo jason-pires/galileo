@@ -1,6 +1,6 @@
 import { mocked } from 'ts-jest/utils'
 import * as CustomersService from '../src/customers/customers.service';
-import { Customer } from '../src/customers/customer.type';
+import { Customer } from '../src/customers/customers.type';
 
 jest.mock('../src/customers/customers.service', () => {
     return jest.fn();
