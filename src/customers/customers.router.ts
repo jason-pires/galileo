@@ -59,17 +59,12 @@ customersRouter.get('/', async (req: Request, res: Response) => {
   
     try {
       const itemUpdate: Customer = req.body;
+      const updated: Customer = await CustomersService.update(id, itemUpdate);
   
-      const existingItem: Customer = await CustomersService.find(id);
-  
-      if (existingItem) {
-        const updatedItem = await CustomersService.update(id, itemUpdate);
-        return res.status(200).json(updatedItem);
+      if (updated.id === id) {
+        return res.status(200).json(updated);
       }
-  
-      const newItem = await CustomersService.create(itemUpdate);
-  
-      res.status(201).json(newItem);
+      res.status(201).json(updated);
     } catch (e) {
       res.status(500).send(e);
     }

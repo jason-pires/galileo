@@ -6,8 +6,9 @@ let count: number = 3;
 /**
  * Data Model Interfaces
  */
-import { Customer } from './customer.type';
+import { BaseCustomer, Customer } from './customer.type';
 import { Customers } from './customers.type'
+import * as customersData from './customers.data'
 
 /**
  * In-Memory Store
@@ -40,32 +41,28 @@ let customers: Customers = {
  * Service Methods
  */
 
-export const findAll = async (): Promise<Customer[]> => Object.values(customers);
+export const findAll = async (): Promise<Customer[]> => customersData.findAll();
 
-export const find = async (id: number): Promise<Customer> => customers[id];
+export const find = async (id: number): Promise<Customer> => customersData.find(id);
 
-export const create = async (customer: Customer): Promise<Customer> => {
-    const id = ++count;
-    customers[id] = {
-        id,
-        ...customer,
-    };
-    return customers[id];
+export const create = async (baseCustomer: BaseCustomer): Promise<Customer> => {
+    const lastID = await customersData.create(baseCustomer);
+    return {id: lastID, ...baseCustomer} as Customer;
 };
 
-export const update = async ( id: number, customerUpdate: Customer): Promise<Customer | null> => {
-    const customer = await find(id);
-    if (!customer) {
-        return null;
+export const update = async (id: number, customerUpdate: BaseCustomer): Promise<Customer> => {
+    const customer = {id, ...customerUpdate} as Customer;
+    let found: Customer = await find(id);
+    if (found) {
+      return await customersData.update(customer);
     }
-    customers[id] = { id, ...customerUpdate };
-    return customers[id];
+    return await create(customerUpdate);
 };
 
 export const remove = async (id: number): Promise<null | void> => {
     const customer = await find(id);
     if (!customer) {
-      return null;
+        return null;
     }
     delete customers[id];
-  };
+};

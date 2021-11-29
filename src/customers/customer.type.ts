@@ -1,7 +1,10 @@
-export interface Customer {
-    id?: number;
-    name: string;
-    gender: string;
-    email: string;
-    document: string;
-  }
+export interface BaseCustomer {
+  name: string;
+  gender: string;
+  email: string;
+  document: string;
+}
+
+export interface Customer extends BaseCustomer {
+  id: number;
+}

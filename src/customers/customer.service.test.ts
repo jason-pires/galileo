@@ -1,4 +1,4 @@
-import { Customer } from './customer.type'
+import { BaseCustomer, Customer } from './customer.type'
 import mockService from '../../__mocks__/customers.service.mock.test'
 
 describe('Customer Service', () => {
@@ -13,7 +13,7 @@ describe('Customer Service', () => {
     })
 
     it('Create shoud resolve as id = 3', async () => {
-        const myCustomer: Customer = {
+        const myCustomer: BaseCustomer = {
             document: '',
             email: '',
             gender: '',
@@ -24,7 +24,7 @@ describe('Customer Service', () => {
     })
 
     it('Update shoud resolve as same customer', async () => {
-        const myCustomer: Customer = {
+        const myCustomer: BaseCustomer = {
             document: '',
             email: '',
             gender: '',
