@@ -13,7 +13,7 @@ customersRouter.get('/', async (req: Request, res: Response) => {
   
       res.status(200).send(items);
     } catch (e) {
-      res.status(500).send(e.message);
+      res.status(500).send(e);
     }
   });
 
@@ -32,7 +32,7 @@ customersRouter.get('/', async (req: Request, res: Response) => {
   
       res.status(404).send("Cliente não encontrado");
     } catch (e: any) {
-      res.status(500).send(e.message);
+      res.status(500).send(e);
     }
   });
 
@@ -47,7 +47,7 @@ customersRouter.get('/', async (req: Request, res: Response) => {
   
       res.status(201).json(newItem);
     } catch (e) {
-      res.status(500).send(e.message);
+      res.status(500).send(e);
     }
   });
 
@@ -71,7 +71,7 @@ customersRouter.get('/', async (req: Request, res: Response) => {
   
       res.status(201).json(newItem);
     } catch (e) {
-      res.status(500).send(e.message);
+      res.status(500).send(e);
     }
   });
 
@@ -85,6 +85,6 @@ customersRouter.get('/', async (req: Request, res: Response) => {
   
       res.sendStatus(204);
     } catch (e) {
-      res.status(500).send(e.message);
+      res.status(500).send(e);
     }
   });
