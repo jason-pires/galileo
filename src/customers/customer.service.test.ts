@@ -1,4 +1,4 @@
-import { BaseCustomer, Customer } from './customer.type'
+import { BaseCustomer } from './customer.type'
 import mockService from '../../__mocks__/customers.service.mock.test'
 
 describe('Customer Service', () => {

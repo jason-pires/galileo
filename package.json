@@ -5,7 +5,8 @@
   "main": "./src/app.js",
   "scripts": {
     "test": "jest",
-    "start": "ts-node-dev --respawn --pretty --transpile-only src/app.ts"
+    "start": "ts-node-dev --respawn --pretty --transpile-only src/app.ts",
+    "lint": "eslint . --ext .ts"
   },
   "repository": {
     "type": "git",
@@ -35,6 +36,9 @@
     "@types/jest": "^27.0.3",
     "@types/mysql": "^2.15.19",
     "@types/node": "^16.11.10",
+    "@typescript-eslint/eslint-plugin": "^5.4.0",
+    "@typescript-eslint/parser": "^5.4.0",
+    "eslint": "^8.3.0",
     "jest": "^27.3.1",
     "ts-jest": "^27.0.7",
     "ts-node-dev": "^1.1.8",

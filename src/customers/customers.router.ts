@@ -31,7 +31,7 @@ customersRouter.get('/', async (req: Request, res: Response) => {
       }
   
       res.status(404).send("Cliente não encontrado");
-    } catch (e: any) {
+    } catch (e) {
       res.status(500).send(e);
     }
   });

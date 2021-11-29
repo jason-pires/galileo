@@ -29,7 +29,7 @@ mockedCustomersService.findAll = jest.fn().mockImplementationOnce(async () => {
 });
 
 mockedCustomersService.find = jest.fn().mockImplementation((id: number) => {
-    let found = findAllResponse.find(i => i.id === id);
+    const found = findAllResponse.find(i => i.id === id);
     return Promise.resolve(found);
 });
 
@@ -41,7 +41,7 @@ mockedCustomersService.create = jest.fn().mockImplementation(async (createCustom
 });
 
 mockedCustomersService.update = jest.fn().mockImplementation(async (id: number, updateCustomer: Customer): Promise<Customer | null> => {
-    let idx = findAllResponse.findIndex(c => c.id === id);
+    const idx = findAllResponse.findIndex(c => c.id === id);
     if(idx > -1) {
         findAllResponse[idx] = updateCustomer;
     } else {
@@ -51,7 +51,7 @@ mockedCustomersService.update = jest.fn().mockImplementation(async (id: number, 
 });
 
 mockedCustomersService.remove = jest.fn().mockImplementation(async (id: number) => {
-    let idx = findAllResponse.findIndex(c => c.id === id);
+    const idx = findAllResponse.findIndex(c => c.id === id);
     if(idx > -1) {
         delete findAllResponse[idx];
     } else {

@@ -14,7 +14,7 @@ export const create = (customer: BaseCustomer) => {
             queryString,
             [customer.name, customer.email, customer.document, customer.gender],
             (err, result) => {
-                if (err) { reject(err) };
+                if (err) { reject(err) }
                 const insertId = (<OkPacket>result).insertId;
                 resolve(insertId);
             }
@@ -90,7 +90,7 @@ export const update = (customer: Customer) => {
                 customer.gender,
                 db.escape(customer.id),
             ],
-            (err, result) => {
+            (err) => {
                 if (err) { reject(err) }
                 resolve(customer);
             }
@@ -98,19 +98,22 @@ export const update = (customer: Customer) => {
     });
 }
 
-export const remove = (id: number, callback: Function) => {
-    const queryString = `
-    DELETE FROM 'db_market'.'customers'
-    WHERE 'id' = ?;`;
+export const remove = (id: number) => {
+    return new Promise<null | void>((resolve, reject) => {
 
-    db.query(
-        queryString,
-        [
-            db.escape(id),
-        ],
-        (err, result) => {
-            if (err) { callback(err) }
-            callback(null);
-        }
-    );
+        const queryString = `
+            DELETE FROM db_market.customers
+            WHERE id = ?;`;
+
+        db.query(
+            queryString,
+            [
+                db.escape(id),
+            ],
+            (err) => {
+                if (err) { reject(err) }
+                resolve(null);
+            }
+        );
+    });
 }
