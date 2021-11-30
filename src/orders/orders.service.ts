@@ -16,7 +16,6 @@ export const findAll = async (): Promise<Order[]> => {
 };
 
 export const find = async (id: number): Promise<Order> => {
-    // TODO fill orderProducts object
     return await ordersData.find(id);
 };
 
