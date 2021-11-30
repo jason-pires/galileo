@@ -7,6 +7,7 @@ import cors from 'cors';
 import helmet from 'helmet';
 import { customersRouter } from './customers/customers.router'
 import { productsRouter } from './products/products.router'
+import { ordersRouter } from './orders/orders.router'
 import { errorHandler } from "./common/middleware/error.middleware";
 import { notFoundHandler } from "./common/middleware/not-found.middleware"
 
@@ -29,6 +30,7 @@ app.use(helmet());
 app.use(express.json());
 app.use('/api/clientes', customersRouter);
 app.use('/api/produtos', productsRouter);
+app.use('/api/pedidos', ordersRouter);
 app.use(errorHandler);
 app.use(notFoundHandler);
 
