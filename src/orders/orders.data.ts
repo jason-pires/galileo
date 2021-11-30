@@ -108,7 +108,7 @@ export const find = (id: number) => {
         INNER JOIN customers c ON c.id = o.customer
         WHERE o.id = ?`;
 
-        db.query(queryString, [id], (err, result) => {
+        db.query(queryString, [id], async (err, result) => {
             if (err) { reject(err) }
             const row = (<RowDataPacket[]>result)[0];
             const order: Order = {
@@ -123,7 +123,7 @@ export const find = (id: number) => {
                     gender: row.customer_gender,
                     name: row.customer_name
                 },
-                orderProducts: [] as OrderProduct[]
+                orderProducts: await findOrderProducts(row.id)
             }
             resolve(order);
         });

@@ -1,4 +1,4 @@
-import { BaseCustomer, Customer } from './customer.type';
+import { BaseCustomer, Customer } from './customers.type';
 import * as customersData from './customers.data'
 
 /**

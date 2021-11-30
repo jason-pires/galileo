@@ -1,6 +1,6 @@
 import { OkPacket, RowDataPacket } from "mysql2";
 import { db } from "../db";
-import { BaseCustomer, Customer } from "./customer.type";
+import { BaseCustomer, Customer } from "./customers.type";
 
 export const create = (customer: BaseCustomer) => {
 
