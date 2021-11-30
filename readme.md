@@ -1,6 +1,6 @@
 # Galileo Project 
 
-This project was used to develop sample NodeJS application to Luizalabs Exam
+This project was used to develop sample NodeJS application
 Galileo is just a nickname.
 
 It was created using last nodeJS and Typescript resources and better project practices.
@@ -11,10 +11,11 @@ To run this application you'll need:
 
 * nodeJS 16+
 * typescript 4.5.2+
+* mysql database
 
 ## Running
 
-After clone this app don't forget to run
+After clone this app you´ll need to run:
 
 ```npm i```
 
@@ -27,3 +28,5 @@ To run npm just execute on commandline:
 ## Debugging
 
 Just start VS Code and launch.json file with nodeJS profile.
+
+Enjoy!
